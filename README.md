@@ -1,4 +1,4 @@
-"# zaman"
+# ZAMAN
 ## How to install
 
 ### Clone the repo 
