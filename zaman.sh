@@ -1,3 +1,4 @@
+
 #Kali/termux packeges installer toool
 #Auther : Tauseed zaman
 
@@ -8,6 +9,7 @@ white="${Escape}[0m"; RedF="${Escape}[31m"; GreenF="${Escape}[32m";
 
 while :
 do
+clear
 
 echo -e $lightgreen " _____   _    __  __    _    _   _" 
 echo -e $lightgreen "|__  /  / \  |  \/  |  / \  | \ | |"
@@ -19,12 +21,12 @@ echo -e $cyan "Kali/Termux Helper Tool for biggnners."
 echo -e $red"  --------------------------------------"
 echo
 
-echo -e $red "[1] ~》$yellow Install Text Editors";
+echo -e $red "[1] ~》$yellow Text Editors";
 echo -e $red "[2] ~》$yellow Pishing Tools"
-echo -e $red "[3] ~》$yellow Install Sherlo0ck";
+echo -e $red "[3] ~》$yellow Information Gathering";
 echo -e $red "[0] ~》$yellow Exit Zaman";
 echo 
-read -p "Choose from the about menu : " x
+read -p "Choose from the above menu : " x
 
 if [ $x -eq 1 ]
 then {
@@ -41,9 +43,7 @@ then {
 		echo -e $green "type  nano --help for details";
 		read -p "Press enter key to return" 
 	}
-	fi
-	
-	if [ $editor -eq 2 ] 
+	elif [ $editor -eq 2 ] 
 	then {
 	echo "Installing VIM Text Editor.........";
 	sleep 1
@@ -51,9 +51,8 @@ then {
 	echo -e $green "vim text editor installed";
     echo -e $green "type  nano --help for details";
     read -p "Press enter key to return"
-	} fi
-
-	if [ $editor -eq 3 ] 
+	}
+	elif [ $editor -eq 3 ] 
         then {
         	 echo "Installing micro Text Editor.........";
 	         sleep 1 
@@ -61,16 +60,18 @@ then {
        		 echo -e $green "Micro text editor installed";
        		 echo -e $green "type  micro --help for details";
        		 read -p  "Press enter key to return"
-        } fi
+        } 
+        else {
+        read -p "Invalid entry. Try again";
+        }
+        fi
 
 }
-fi
-
-if [ $x -eq 2 ]
+elif [ $x -eq 2 ]
 then {
 	echo -e $cyan"Welcome to the world of $red pishing $cyan tools" 
-	echo -e $red"[1] ~》$yellow Try NexPisher "; 
-	echo -e $red"[2] ~》$yellow Try ZPHISHER";
+	echo -e $red"[1] ~》$yellow NexPisher "; 
+	echo -e $red"[2] ~》$yellow ZPHISHER";
 	 read pish; 
 	if [ $pish -eq 1 ]
 		then {
@@ -80,9 +81,7 @@ then {
 		cd nexphisher ; bash setup ; bash nexphisher
 
 	}
-	fi
-
-	if [ $pish -eq 2 ]
+	elif [ $pish -eq 2 ]
 		then {
 		echo -e $cyan" Installing...";	
 		apt update;
@@ -94,29 +93,54 @@ then {
 		bash zphisher/zphisher.sh	
 	}
 	else {
-	echo
+	read -p "Invalid entry. Try again";
 	}
 	fi
 }
-fi
-
-if [ $x -eq 3 ]
+elif [ $x -eq 3 ]
 then {
-	apt install python3
-	git clone https://github.com/sherlock-project/sherlock.git
-	python3 -m pip install -r sherlock/requirements.txt
-	echo -e $yellow"Enter Target Username:"
-	read username
-	python sherlock/sherlock.py $username
+	echo -e $cyan"Information Gathering tools" 
+	echo -e $red"[1] ~》$yellow Phone Number Tracker"; 
+	echo -e $red"[2] ~》$yellow Sherlock";
+	read -p "choose from the above menu: " infoo; 
+	if [ $infoo -eq 1 ]
+		then {
+		apt update ; 
+		apt install git -y ; 
+		git clone https://github.com/htr-tech/nexphisher.git ; 
+		cd nexphisher ; bash setup ; bash nexphisher
+	
+	}
+	elif [ $infoo -eq 2 ]
+	then  {	
+	 echo
+	 echo -p "Updating the system...."
+	 sleep 1
+		apt update
+		echo
+		echo -p "Upgrading the system..."
+		sleep 1
+		apt upgrade
+		echo
+		echo -p "Installing python...."
+		sleep 1
+		apt install python
+		apt install python2
+		pip2 install requests		
+		pip2 install mechanize		
+		git clone https://GitHub.com/ShuBhamg0sain/phone-number-tracker		
+		python2 phone-number-tracker/tracker.py
+		}
+		fi
 }
-fi
-if [ $x -eq 0 ]
+elif [ $x -eq 0 ]
 then {
 	exit 0;
 	echo " Thanks for using Zaman";
 }
 else {
-echo "Lol! Invalid Entry try again 😞";
+echo
+read -p "Lol! Invalid Entry try again 😞";
 }
 fi
 done
