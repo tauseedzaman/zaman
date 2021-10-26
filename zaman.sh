@@ -102,6 +102,7 @@ then {
 	echo -e $cyan"Information Gathering tools" 
 	echo -e $red"[1] ~》$yellow Phone Number Tracker"; 
 	echo -e $red"[2] ~》$yellow Sherlock";
+	echo -e $red"[3] ~》$yellow Exif-Tool";
 	read -p "choose from the above menu: " infoo; 
 	if [ $infoo -eq 1 ]
 		then {
@@ -128,9 +129,24 @@ then {
 		apt install python2
 		pip2 install requests		
 		pip2 install mechanize		
-		git clone https://GitHub.com/ShuBhamg0sain/phone-number-tracker		
+		git clone https://GitHub.com/ShuBhamg0sain/phone-number-tracker		
 		python2 phone-number-tracker/tracker.py
 		}
+	elif [ $infoo -eq 3 ]
+			then  {	
+			 echo
+			 echo -p "Installing...."
+			 sleep 1
+			 apt install exitTool
+			 echo -e $cyan" Exif-Tool Installed."
+			 echo -e $green "type  exiftool --help for details";
+       		 read -p  "do you want to continue [y/n]" i
+       		 if [ $x -eq "n"]
+       		 	then {
+       		 		exit 0;
+       		 	}
+       		 fi
+			}
 		fi
 }
 elif [ $x -eq 0 ]
