@@ -72,6 +72,7 @@ then {
 	echo -e $cyan"Welcome to the world of $red pishing $cyan tools" 
 	echo -e $red"[1] ~》$yellow NexPisher "; 
 	echo -e $red"[2] ~》$yellow ZPHISHER";
+	echo -e $red"[3] ~》$yellow CAMPISH";
 	 read pish; 
 	if [ $pish -eq 1 ]
 		then {
@@ -91,6 +92,17 @@ then {
 		echo -e $red" Executing Zphisher......";
 		sleep 0
 		bash zphisher/zphisher.sh	
+	}
+	elif [ $pish -eq 3 ]
+		then {
+		echo -e $cyan" Installing...";	
+		apt update;
+		apt upgrade
+		git clone https://github.com/techchipnet/CamPhish
+		echo -e $green"CamPhish Installed...";	
+		echo -e $red" Executing CamPhish......";
+		sleep 0
+		bash CamPhish/camphish.sh
 	}
 	else {
 	read -p "Invalid entry. Try again";
