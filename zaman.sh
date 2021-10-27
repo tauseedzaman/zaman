@@ -98,6 +98,7 @@ then {
 		echo -e $cyan" Installing...";	
 		apt update;
 		apt upgrade
+		apt-get -y install php openssh git wget
 		git clone https://github.com/techchipnet/CamPhish
 		echo -e $green"CamPhish Installed...";	
 		echo -e $red" Executing CamPhish......";
